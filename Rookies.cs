@@ -62,14 +62,17 @@ namespace Program
         }
 
         public static void joinClass(List<Member> rookies){
-            DateTime dt1 = DateTime.Parse("22/03/2021");
+            DateTime dt1 = new DateTime(2021,3,22);
             List<Member> newList = new List<Member>();
             foreach(var items in rookies){
-                if(items.startDate > dt1){
+                if(DateTime.Compare(items.startDate, dt1) < 0){
                     Console.WriteLine("First name: " + items.firstName + "\nLast name: " + items.lastName 
-                + "\nGender: " + items.gender + "\nDate of birth: " 
-                + items.dob.ToString("dd/MM/yyyy") + "\nPhone number: " + items.phoneNumber
-                + "\nBirth place: " + items.birthPlace);
+                    + "\nGender: " + items.gender + "\nDate of birth: " 
+                    + items.dob.ToString("dd/MM/yyyy") + "\nPhone number: " + items.phoneNumber
+                    + "\nBirth place: " + items.birthPlace
+                    + "\nStart date: " + items.startDate.ToString("dd/MM/yyyy") 
+                    + "\nEnd date: " + items.endDate.ToString("dd/MM/yyyy")
+                    + "\n---------------------------\n");
                 }
             }
             
